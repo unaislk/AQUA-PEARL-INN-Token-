@@ -236,3 +236,6 @@ contract AquaPearlInn {
         taxPercent = _tax;
     }
 }
+
+
+last added some words token making algorithm make it fast
