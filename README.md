@@ -181,3 +181,11 @@ By combining innovation, trust, and community, API strives to build a sustainabl
 ---
 
 © 2026 AQUA PEARL INN (API). All rights reserved.
+
+Token Name: AQUA PEARL INN
+Symbol: API
+Network: Binance Smart Chain
+
+👉 Fast, low fees, scalable
+now make it block chain token total quantity 300000000 
+token name and details upside mension it already 
