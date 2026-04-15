@@ -187,5 +187,52 @@ Symbol: API
 Network: Binance Smart Chain
 
 👉 Fast, low fees, scalable
-now make it block chain token total quantity 300000000 
-token name and details upside mension it already 
+
+
+token algorithm i will share you
+
+
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract AquaPearlInn {
+
+    string public name = "AQUA PEARL INN";
+    string public symbol = "API";
+    uint8 public decimals = 18;
+    uint256 public totalSupply = 1000000 * 10**18;
+
+    address public owner;
+
+    mapping(address => uint256) public balanceOf;
+    mapping(address => mapping(address => uint256)) public allowance;
+
+    uint256 public taxPercent = 2; // 2% fee
+
+    constructor() {
+        owner = msg.sender;
+        balanceOf[msg.sender] = totalSupply;
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Not owner");
+        _;
+    }
+
+    function transfer(address _to, uint256 _value) public returns (bool) {
+        require(balanceOf[msg.sender] >= _value, "Low balance");
+
+        uint256 fee = (_value * taxPercent) / 100;
+        uint256 sendAmount = _value - fee;
+
+        balanceOf[msg.sender] -= _value;
+        balanceOf[_to] += sendAmount;
+        balanceOf[owner] += fee; // fee goes to owner
+
+        return true;
+    }
+
+    function setTax(uint256 _tax) public onlyOwner {
+        taxPercent = _tax;
+    }
+}
